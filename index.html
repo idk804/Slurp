@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Generator (g4f)</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- gpt4free library from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gpt4free@latest/dist/index.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Content Generator</h1>
+        <p class="disclaimer"><strong>WARNING:</strong> Using gpt4free with api.airforce provider. The requested models (claude-opus-4.5, sora-2, etc.) are likely placeholders and are expected to fail or not work as intended.</p>
+
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'TextTab')">Text-to-Text</button>
+            <button class="tab-button" onclick="openTab(event, 'VideoTab')">Text-to-Video</button>
+            <button class="tab-button" onclick="openTab(event, 'MusicTab')">Text-to-Music</button>
+        </div>
+
+        <!-- TEXT TO TEXT TAB -->
+        <div id="TextTab" class="tab-content active">
+            <h2>Text-to-Text Generation</h2>
+            <div class="model-selector">
+                <label for="textModel">Choose Model:</label>
+                <select id="textModel">
+                    <option value="claude-opus-4.5">claude-opus-4.5</option>
+                    <option value="gemini-3-pro">gemini-3-pro</option>
+                </select>
+            </div>
+            <textarea id="textPrompt" rows="7" placeholder="Enter your prompt here..."></textarea>
+            <button id="generateTextBtn">Generate Text</button>
+            <div id="textOutput" class="output-box"></div>
+        </div>
+
+        <!-- TEXT TO VIDEO TAB -->
+        <div id="VideoTab" class="tab-content">
+            <h2>Text-to-Video Generation</h2>
+            <div class="model-selector">
+                <label for="videoModel">Choose Model:</label>
+                <select id="videoModel">
+                    <option value="sora-2">sora-2</option>
+                    <option value="veo-3.1">veo-3.1</option>
+                </select>
+            </div>
+            <textarea id="videoPrompt" rows="7" placeholder="Describe the video you want to generate..."></textarea>
+            <button id="generateVideoBtn">Generate Video</button>
+            <div id="videoOutput" class="output-box">
+                <p class="placeholder-text">Your generated video will appear here. This is very likely to fail.</p>
+            </div>
+        </div>
+
+        <!-- TEXT TO MUSIC TAB -->
+        <div id="MusicTab" class="tab-content">
+            <h2>Text-to-Music Generation</h2>
+            <div class="model-selector">
+                <label for="musicModel">Choose Model:</label>
+                <select id="musicModel">
+                    <option value="suno-v5">suno-v5</option>
+                </select>
+            </div>
+            <textarea id="musicPrompt" rows="7" placeholder="Describe the music you want to generate..."></textarea>
+            <button id="generateMusicBtn">Generate Music</button>
+            <div id="musicOutput" class="output-box">
+                <p class="placeholder-text">Your generated music player will appear here. This is very likely to fail.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
